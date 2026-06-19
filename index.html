@@ -1,70 +1,194 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Musholla Trusmiland Tengahtani 4A</title>
-  <meta name="description" content="Musholla Trusmiland Tengah Tani 4A — ruang ibadah baru untuk warga Trusmiland.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donasi Musholla Trusmiland Tengahtani 4A</title>
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Musholla Trusmiland Tengah Tani 4A">
-  <meta property="og:description" content="Ruang ibadah baru untuk warga Trusmiland.">
-  <meta property="og:image" content="hero.jpg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="hero.jpg">
+<link rel="stylesheet" href="assets/css/style.css">
 
-  <style>
-    /* Basic reset & typography */
-    :root{--green:#1f8f4d}
-    html,body{height:100%;}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans";color:#222;background:#fff}
-
-    /* Hero */
-    .hero{position:relative;overflow:hidden;min-height:60vh;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;background:#000}
-    .hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-    .hero__overlay{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35))}
-    .hero__content{position:relative;z-index:2;padding:2rem;max-width:980px}
-    .hero__logo{max-width:140px;margin:0 auto 1rem;display:block}
-    .hero__title{font-size:clamp(1.5rem,4vw,2.5rem);margin:0 0 .5rem}
-    .hero__subtitle{margin:0 0 1rem;opacity:.95}
-    .btn--primary{background:var(--green);color:#fff;padding:.6rem 1.1rem;border-radius:6px;text-decoration:none;display:inline-block}
-    @media (max-width:600px){.hero{min-height:45vh}.hero__logo{max-width:110px}}
-
-    /* Page layout */
-    .container{padding:1.25rem;max-width:980px;margin:0 auto}
-    .footer{padding:1rem 0;text-align:center;color:#666;font-size:.9rem}
-
-    /* Utility */
-    h2{margin-top:0}
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header class="hero" role="banner" aria-label="Hero - Musholla Trusmiland Tengah Tani 4A">
-    <picture>
-      <source srcset="hero.webp" type="image/webp">
-      <img src="hero.jpg" alt="Musholla Trusmiland Tengah Tani 4A at dusk, modern white building with illuminated entrance." class="hero__bg" />
-    </picture>
 
-    <div class="hero__overlay" aria-hidden="true"></div>
-
-    <div class="hero__content">
-      <img src="logo.png" alt="Logo of Musholla Trusmiland Tengah Tani 4A — green mosque silhouette with sun and field stripes." class="hero__logo">
-      <h1 class="hero__title">Musholla Trusmiland Tengah Tani 4A</h1>
-      <p class="hero__subtitle">Ruang ibadah baru untuk warga Trusmiland.</p>
-      <p><a href="#donasi" class="btn--primary">Donasi</a></p>
+<header>
+    <div class="container">
+        <h1>Musholla Trusmiland Tengahtani 4A</h1>
+        <p>Perumahan Trusmiland Tengahtani Tahap 1 - Kabupaten Cirebon</p>
     </div>
-  </header>
+</header>
 
-  <main class="container" id="main">
-    <h2>Selamat datang</h2>
-    <p>Website siap upload. Ganti <code>logo.png</code>, <code>hero.jpg</code> dan <code>proposal.pdf</code> bila diperlukan.</p>
-  </main>
+<nav>
+    <div class="container">
+        <a href="#home">Beranda</a>
+        <a href="#donasi">Donasi</a>
+        <a href="#proposal">Proposal</a>
+        <a href="#donatur">Donatur</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#kontak">Kontak</a>
+    </div>
+</nav>
 
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> Musholla Trusmiland Tengah Tani 4A</p>
-  </footer>
+<section class="hero" id="home">
+    <div class="overlay">
+        <h2>Bersama Membangun dan Melengkapi Inventaris Musholla</h2>
+        <p>Mari ambil bagian dalam amal jariyah untuk kenyamanan ibadah jamaah.</p>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+```
+    <a class="btn" href="https://wa.me/6281222114098?text=Assalamu'alaikum%20Saya%20ingin%20berdonasi%20untuk%20Musholla%20Trusmiland%20Tengahtani%204A">
+        Donasi Sekarang
+    </a>
+</div>
+```
+
+</section>
+
+<section class="progress-section" id="donasi">
+    <div class="container">
+        <h2>Progress Donasi</h2>
+
+```
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill">
+            0%
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="card">
+            <h3>Target</h3>
+            <p>Rp 30.800.000</p>
+        </div>
+
+        <div class="card">
+            <h3>Terkumpul</h3>
+            <p id="terkumpul">Rp 0</p>
+        </div>
+
+        <div class="card">
+            <h3>Sisa</h3>
+            <p id="sisa">Rp 30.800.000</p>
+        </div>
+    </div>
+</div>
+```
+
+</section>
+
+<section class="inventaris">
+    <div class="container">
+        <h2>Kebutuhan Inventaris Musholla</h2>
+
+```
+    <div class="grid">
+
+        <div class="item">Sound System<br>Rp 6.000.000</div>
+        <div class="item">Karpet Musholla<br>Rp 7.000.000</div>
+        <div class="item">Pembatas Shaf<br>Rp 5.000.000</div>
+        <div class="item">Rak Al-Qur'an<br>Rp 2.000.000</div>
+        <div class="item">Mukena & Sarung<br>Rp 2.500.000</div>
+        <div class="item">Kaligrafi<br>Rp 2.000.000</div>
+
+    </div>
+</div>
+```
+
+</section>
+
+<section id="proposal">
+    <div class="container">
+        <h2>Proposal Musholla</h2>
+
+```
+    <a class="btn" href="proposal/proposal.pdf" target="_blank">
+        Baca Proposal
+    </a>
+</div>
+```
+
+</section>
+
+<section id="donatur">
+    <div class="container">
+        <h2>Daftar Donatur</h2>
+
+```
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Tanggal</th>
+                <th>Nominal</th>
+            </tr>
+        </thead>
+
+        <tbody id="donaturTable">
+            <tr>
+                <td colspan="3">Data Donatur Akan Ditampilkan Di Sini</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+```
+
+</section>
+
+<section id="galeri">
+    <div class="container">
+        <h2>Galeri Musholla</h2>
+
+```
+    <div class="coming">
+        Dokumentasi pembangunan dan kegiatan musholla akan segera diperbarui.
+    </div>
+</div>
+```
+
+</section>
+
+<section id="kontak">
+    <div class="container">
+        <h2>Kontak</h2>
+
+```
+    <p>📞 Johan : 0812-2211-4098</p>
+
+    <p>
+        📍 Perumahan Trusmiland Tengahtani Tahap 1,
+        Desa Jatimerta,
+        Kecamatan Gunung Jati,
+        Kabupaten Cirebon
+    </p>
+
+    <a class="btn"
+       target="_blank"
+       href="https://maps.google.com/?q=-6.685844,108.526328">
+        Buka Lokasi
+    </a>
+</div>
+```
+
+</section>
+
+<footer>
+    © 2026 Musholla Trusmiland Tengahtani 4A
+</footer>
+
+<script src="assets/js/app.js"></script>
+
+<p id="terkumpul">Rp 0</p>
+<p id="sisa">Rp 30.800.000</p>
+
+<div class="progress-fill" id="progressFill">
+0%
+</div>
+
+<tbody id="donaturTable"></tbody>
+
+<p id="jumlahDonatur">0</p>
+
 </body>
 </html>
