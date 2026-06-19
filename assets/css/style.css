@@ -52,12 +52,23 @@ font-weight:600;
 }
 
 .hero{
-height:80vh;
-background:url('../images/hero.jpg') center center/cover;
+min-height:90vh;
+background:
+linear-gradient(
+rgba(0,0,0,0.55),
+rgba(0,0,0,0.55)
+),
+url('../images/hero.jpg');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
+
 }
 
 .overlay{
