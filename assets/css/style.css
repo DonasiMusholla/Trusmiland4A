@@ -1,5 +1,6 @@
 /* ============================================
    STYLE WEBSITE DONASI MUSHOLLA TRUSMILAND
+   PREMIUM VERSION WITH MUSHOLLA BACKGROUND
    ============================================ */
 
 * {
@@ -14,7 +15,7 @@
    ============================================ */
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+    background: linear-gradient(135deg, #0f1c3f 0%, #1a2d5a 100%);
     background-attachment: fixed;
     color: #333;
     line-height: 1.6;
@@ -32,18 +33,21 @@ body {
 }
 
 /* ============================================
-   HEADER
+   HEADER - PREMIUM MUSHOLLA STYLE
    ============================================ */
 
 header {
-    background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%),
+    background: linear-gradient(135deg, rgba(15, 28, 63, 0.80) 0%, rgba(26, 45, 90, 0.80) 100%),
                 url('https://raw.githubusercontent.com/DonasiMusholla/Trusmiland4A/refs/heads/main/assets/Images/hero.jpg') center/cover;
     background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 40px 0;
+    padding: 60px 0;
     text-align: center;
     position: relative;
-    border-bottom: 5px solid #4CAF50;
+    border-bottom: 8px solid #d4af37;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
 
 header::before {
@@ -53,8 +57,19 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 60, 114, 0.70) 0%, rgba(42, 82, 152, 0.70) 100%);
+    background: linear-gradient(135deg, rgba(15, 28, 63, 0.65) 0%, rgba(26, 45, 90, 0.65) 100%);
     z-index: 1;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
+    z-index: 3;
 }
 
 header .container {
@@ -63,61 +78,68 @@ header .container {
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    color: #fff;
 }
 
 header p {
-    font-size: 1.1rem;
-    font-weight: 300;
-    opacity: 0.95;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.98;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    margin-top: 12px;
+    color: #e0e0e0;
 }
 
 /* ============================================
-   NAVIGASI
+   NAVIGASI - STICKY PREMIUM
    ============================================ */
 
 nav {
-    background: rgba(30, 60, 114, 0.98);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    background: rgba(15, 28, 63, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 999;
-    border-bottom: 3px solid #4CAF50;
+    border-bottom: 4px solid #d4af37;
 }
 
 nav .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 15px;
+    gap: 30px;
+    padding: 18px;
 }
 
 nav a {
     text-decoration: none;
     color: white;
     font-weight: 600;
-    transition: all 0.3s ease;
-    padding: 8px 12px;
+    transition: all 0.4s ease;
+    padding: 10px 16px;
     border-bottom: 3px solid transparent;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
 }
 
 nav a:hover {
-    color: #4CAF50;
-    border-bottom-color: #4CAF50;
+    color: #d4af37;
+    border-bottom-color: #d4af37;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 /* ============================================
-   HERO SECTION (DENGAN BACKGROUND FOTO)
+   HERO SECTION - MUSHOLLA WITH PARALLAX
    ============================================ */
 
 .hero {
-    min-height: 500px;
-    background: linear-gradient(135deg, rgba(30, 60, 114, 0.75) 0%, rgba(42, 82, 152, 0.75) 100%),
+    min-height: 550px;
+    background: linear-gradient(135deg, rgba(15, 28, 63, 0.70) 0%, rgba(26, 45, 90, 0.70) 100%),
                 url('https://raw.githubusercontent.com/DonasiMusholla/Trusmiland4A/refs/heads/main/assets/Images/hero.jpg') center/cover;
     background-attachment: fixed;
     background-size: cover;
@@ -138,269 +160,339 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
     z-index: 1;
 }
 
 .overlay {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 50px 40px;
-    border-radius: 20px;
+    background: rgba(15, 28, 63, 0.45);
+    padding: 60px 50px;
+    border-radius: 25px;
     color: white;
-    max-width: 800px;
+    max-width: 850px;
     position: relative;
     z-index: 2;
     animation: fadeInUp 1s ease-out;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 
 .overlay h2 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 25px;
     font-weight: 700;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
     line-height: 1.3;
+    color: #fff;
+    letter-spacing: 0.5px;
 }
 
 .overlay p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    font-weight: 300;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    font-size: 1.3rem;
+    margin-bottom: 35px;
+    font-weight: 400;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    color: #e8e8e8;
 }
 
 /* ============================================
-   TOMBOL (BUTTON)
+   TOMBOL (BUTTON) - PREMIUM GOLD
    ============================================ */
 
 .btn {
     display: inline-block;
-    padding: 14px 40px;
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-    color: white;
+    padding: 16px 45px;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    color: #0f1c3f;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
     border: none;
     cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+    background: linear-gradient(135deg, #f4d03f 0%, #fff700 50%, #f4d03f 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.55);
 }
 
 .btn:active {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 /* ============================================
-   PROGRESS SECTION
+   PROGRESS SECTION - PREMIUM STYLE
    ============================================ */
 
 .progress-section {
-    padding: 60px 0;
-    background: white;
-    margin: 60px 0;
-    border-radius: 15px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    padding: 70px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    margin: 70px 0;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 .progress-section h2 {
     text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.2rem;
-    color: #1e3c72;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #0f1c3f;
     position: relative;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .progress-section h2::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-    margin: 15px auto 0;
-    border-radius: 2px;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    margin: 20px auto 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 .progress-bar {
     width: 100%;
-    height: 40px;
-    background: #e0e0e0;
-    border-radius: 25px;
+    height: 45px;
+    background: #e8e8e8;
+    border-radius: 30px;
     overflow: hidden;
-    margin-bottom: 40px;
-    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #d4d4d4;
 }
 
 .progress-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
-    color: white;
-    font-weight: 700;
+    background: linear-gradient(90deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    color: #0f1c3f;
+    font-weight: 800;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: width 0.8s ease;
-    font-size: 1rem;
+    transition: width 1s ease;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
 }
 
 .card {
     background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
     text-align: center;
-    border-left: 6px solid #4CAF50;
-    transition: all 0.3s ease;
+    border-left: 6px solid #d4af37;
+    transition: all 0.4s ease;
+    border-top: 2px solid #d4af37;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .card h3 {
-    color: #1e3c72;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    color: #0f1c3f;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .card p {
-    color: #4CAF50;
-    font-size: 1.8rem;
-    font-weight: 700;
+    color: #d4af37;
+    font-size: 2rem;
+    font-weight: 800;
 }
 
 /* ============================================
-   INVENTARIS SECTION
+   INVENTARIS SECTION - MUSHOLLA ITEMS
    ============================================ */
 
 .inventaris {
-    padding: 60px 0;
-    background: white;
-    margin: 60px 0;
-    border-radius: 15px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    padding: 70px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    margin: 70px 0;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.inventaris::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 .inventaris h2 {
     text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.2rem;
-    color: #1e3c72;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #0f1c3f;
     position: relative;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .inventaris h2::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-    margin: 15px auto 0;
-    border-radius: 2px;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    margin: 20px auto 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    position: relative;
+    z-index: 2;
 }
 
 .item {
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    background: linear-gradient(135deg, #0f1c3f 0%, #1a2d5a 100%);
     color: white;
-    padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+    padding: 35px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-weight: 600;
-    transition: all 0.3s ease;
-    min-height: 120px;
+    transition: all 0.4s ease;
+    min-height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid transparent;
+    border-top: 3px solid #d4af37;
 }
 
 .item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
-    background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+    transform: translateY(-12px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #1a2d5a 0%, #2a3d7a 100%);
+    border-left: 3px solid #d4af37;
 }
 
 /* ============================================
-   SECTION UMUM
+   SECTION UMUM - PREMIUM BACKGROUND
    ============================================ */
 
 section {
-    padding: 60px 0;
-    background: white;
-    margin: 60px 0;
-    border-radius: 15px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    padding: 70px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    margin: 70px 0;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
 }
 
 section h2 {
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.2rem;
-    color: #1e3c72;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #0f1c3f;
     position: relative;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 section h2::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-    margin: 15px auto 0;
-    border-radius: 2px;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    margin: 20px auto 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 section p {
     color: #555;
     line-height: 1.8;
+    font-size: 1rem;
 }
 
 /* ============================================
-   TABEL DONATUR
+   TABEL DONATUR - PREMIUM DESIGN
    ============================================ */
 
 table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    margin-top: 20px;
-    border-radius: 8px;
+    margin-top: 25px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 th {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    padding: 15px;
-    font-weight: 600;
+    background: linear-gradient(135deg, #0f1c3f 0%, #1a2d5a 100%);
+    color: #d4af37;
+    padding: 18px;
+    font-weight: 700;
     text-align: left;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid #d4af37;
 }
 
 td {
-    padding: 15px;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 16px 18px;
+    border-bottom: 1px solid #e8e8e8;
     text-align: left;
+    color: #555;
 }
 
 tbody tr:hover {
@@ -412,31 +504,49 @@ tbody tr:nth-child(even) {
 }
 
 /* ============================================
-   COMING SOON
+   COMING SOON - PREMIUM PLACEHOLDER
    ============================================ */
 
 .coming {
     background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
-    padding: 40px;
-    border-radius: 12px;
+    padding: 50px;
+    border-radius: 15px;
     text-align: center;
     color: #666;
     font-weight: 500;
-    border-left: 5px solid #4CAF50;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #d4af37;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    font-size: 1.1rem;
+    border-top: 2px solid #d4af37;
 }
 
 /* ============================================
-   FOOTER
+   FOOTER - PREMIUM MUSHOLLA STYLE
    ============================================ */
 
 footer {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #0f1c3f 0%, #1a2d5a 100%);
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 40px;
     margin-top: 100px;
-    border-top: 3px solid #4CAF50;
+    border-top: 4px solid #d4af37;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
+}
+
+footer p {
+    margin: 8px 0;
+    opacity: 0.95;
 }
 
 /* ============================================
@@ -446,7 +556,7 @@ footer {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
@@ -460,43 +570,43 @@ footer {
 
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     header p {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     nav .container {
-        gap: 10px;
+        gap: 15px;
     }
 
     nav a {
-        font-size: 0.9rem;
-        padding: 6px 8px;
+        font-size: 0.85rem;
+        padding: 8px 12px;
     }
 
     .hero {
-        min-height: 350px;
+        min-height: 400px;
         padding: 40px 0;
     }
 
     .overlay {
-        padding: 30px 20px;
+        padding: 40px 30px;
     }
 
     .overlay h2 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
 
     .overlay p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     section h2,
     .progress-section h2,
     .inventaris h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .grid,
@@ -514,46 +624,54 @@ footer {
     }
 
     .btn {
-        padding: 12px 30px;
-        font-size: 0.95rem;
+        padding: 14px 35px;
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    .item {
+        padding: 30px 20px;
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     header p {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     nav .container {
-        gap: 5px;
-        padding: 10px 5px;
+        gap: 8px;
+        padding: 12px 5px;
     }
 
     nav a {
-        font-size: 0.75rem;
-        padding: 5px 6px;
+        font-size: 0.7rem;
+        padding: 6px 8px;
     }
 
     .hero {
-        min-height: 300px;
+        min-height: 320px;
         padding: 30px 0;
     }
 
     .overlay {
-        padding: 20px 15px;
+        padding: 25px 15px;
     }
 
     .overlay h2 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         margin-bottom: 15px;
     }
 
     .overlay p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         margin-bottom: 20px;
     }
 
@@ -561,15 +679,15 @@ footer {
     .inventaris,
     section {
         padding: 40px 0;
-        margin: 30px 0;
-        border-radius: 10px;
+        margin: 40px 0;
+        border-radius: 15px;
     }
 
     section h2,
     .progress-section h2,
     .inventaris h2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
+        font-size: 1.6rem;
+        margin-bottom: 25px;
     }
 
     .card {
@@ -582,25 +700,25 @@ footer {
     }
 
     .btn {
-        padding: 10px 25px;
-        font-size: 0.85rem;
+        padding: 12px 25px;
+        font-size: 0.8rem;
     }
 
     .coming {
-        padding: 25px 15px;
+        padding: 30px 15px;
         font-size: 0.95rem;
     }
 
     table {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     th,
     td {
-        padding: 8px;
+        padding: 10px;
     }
 
     footer {
-        padding: 20px;
+        padding: 25px 15px;
     }
 }
