@@ -1,6 +1,5 @@
 const TARGET_DANA = 30800000;
 
-// Data contoh langsung di code (jangan fetch Google Sheets dulu)
 const dataContoh = [
     { nama: "Hamba Allah", tanggal: "29 Juni 2026", nominal: 100000 }
 ];
@@ -19,7 +18,7 @@ function updateProgress(total) {
     const sisa = document.getElementById("sisa");
     
     if (!progressBar || !terkumpul || !sisa) {
-        console.error("❌ Element tidak ditemukan!");
+        console.error("Element tidak ditemukan");
         return;
     }
     
@@ -28,15 +27,13 @@ function updateProgress(total) {
     sisa.innerHTML = formatRupiah(TARGET_DANA - total);
     progressBar.style.width = persen + "%";
     progressBar.innerHTML = persen.toFixed(1) + "%";
-    
-    console.log("✅ Progress updated: " + persen.toFixed(1) + "%");
 }
 
 function displayDonatur(donaturList) {
     const donaturTable = document.getElementById("donaturTable");
     
     if (!donaturTable) {
-        console.error("❌ Element #donaturTable tidak ditemukan!");
+        console.error("Element donaturTable tidak ditemukan");
         return;
     }
     
@@ -44,7 +41,8 @@ function displayDonatur(donaturList) {
     let totalDonasi = 0;
     let jumlahDonatur = 0;
 
-    donaturList.forEach(function(donatur) {
+    for (let i = 0; i < donaturList.length; i++) {
+        const donatur = donaturList[i];
         const nominal = parseInt(String(donatur.nominal).replace(/[^0-9]/g, "")) || 0;
         
         if (nominal > 0) {
@@ -52,32 +50,24 @@ function displayDonatur(donaturList) {
             jumlahDonatur++;
             html += "<tr><td>" + donatur.nama + "</td><td>" + donatur.tanggal + "</td><td>" + formatRupiah(nominal) + "</td></tr>";
         }
-    });
+    }
 
     if (html === "") {
-        html = "<tr><td colspan='3'>Belum ada data donatur</td></tr>";
+        html = "<tr><td colspan=\"3\">Belum ada data donatur</td></tr>";
     }
 
     donaturTable.innerHTML = html;
-    console.log("✅ Donatur ditampilkan: " + jumlahDonatur + " donatur");
-    
     updateProgress(totalDonasi);
+    console.log("Total donatur: " + jumlahDonatur);
 }
 
 function initApp() {
-    console.log("🔄 Aplikasi dimulai...");
-    
-    // Tampilkan data contoh langsung
+    console.log("Aplikasi dimulai");
     displayDonatur(dataContoh);
-    
-    console.log("✅ Selesai!");
 }
 
-// Tunggu DOM ready
 if (document.readyState === 'loading') {
-    console.log("⏳ Menunggu DOM...");
     document.addEventListener('DOMContentLoaded', initApp);
 } else {
-    console.log("✅ DOM siap");
     initApp();
 }
