@@ -1,60 +1,7 @@
-const TARGET_DANA = 30800000;
-
-const dataContoh = [
-    {nama: "Hamba Allah", tanggal: "29 Juni 2026", nominal: 100000}
-];
-
-function formatRupiah(angka) {
-    return new Intl.NumberFormat("id-ID", {style: "currency", currency: "IDR", maximumFractionDigits: 0}).format(angka);
-}
-
-function updateProgress(total) {
-    var progressBar = document.getElementById("progressFill");
-    var terkumpul = document.getElementById("terkumpul");
-    var sisa = document.getElementById("sisa");
-    
-    if (!progressBar || !terkumpul || !sisa) return;
-    
-    var persen = Math.min((total / TARGET_DANA) * 100, 100);
-    terkumpul.innerHTML = formatRupiah(total);
-    sisa.innerHTML = formatRupiah(TARGET_DANA - total);
-    progressBar.style.width = persen + "%";
-    progressBar.innerHTML = persen.toFixed(1) + "%";
-}
-
-function displayDonatur(donaturList) {
-    var donaturTable = document.getElementById("donaturTable");
-    if (!donaturTable) return;
-    
-    var html = "";
-    var totalDonasi = 0;
-    var jumlahDonatur = 0;
-
-    for (var i = 0; i < donaturList.length; i++) {
-        var donatur = donaturList[i];
-        var nominal = parseInt(String(donatur.nominal).replace(/[^0-9]/g, "")) || 0;
-        
-        if (nominal > 0) {
-            totalDonasi += nominal;
-            jumlahDonatur++;
-            html += "<tr><td>" + donatur.nama + "</td><td>" + donatur.tanggal + "</td><td>" + formatRupiah(nominal) + "</td></tr>";
-        }
-    }
-
-    if (html === "") {
-        html = "<tr><td colspan='3'>Belum ada data donatur</td></tr>";
-    }
-
-    donaturTable.innerHTML = html;
-    updateProgress(totalDonasi);
-}
-
-function initApp() {
-    displayDonatur(dataContoh);
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initApp);
-} else {
-    initApp();
-}
+var TARGET_DANA = 30800000;
+var dataContoh = [{nama: "Hamba Allah", tanggal: "29 Juni 2026", nominal: 100000}];
+function formatRupiah(n) {return new Intl.NumberFormat("id-ID", {style: "currency", currency: "IDR", maximumFractionDigits: 0}).format(n);}
+function updateProgress(t) {var p = document.getElementById("progressFill"); var tk = document.getElementById("terkumpul"); var s = document.getElementById("sisa"); if (!p || !tk || !s) return; var persen = Math.min((t / TARGET_DANA) * 100, 100); tk.innerHTML = formatRupiah(t); s.innerHTML = formatRupiah(TARGET_DANA - t); p.style.width = persen + "%"; p.innerHTML = persen.toFixed(1) + "%";}
+function displayDonatur(d) {var dt = document.getElementById("donaturTable"); if (!dt) return; var html = ""; var total = 0; var jml = 0; for (var i = 0; i < d.length; i++) {var nom = parseInt(String(d[i].nominal).replace(/[^0-9]/g, "")) || 0; if (nom > 0) {total += nom; jml++; html += "<tr><td>" + d[i].nama + "</td><td>" + d[i].tanggal + "</td><td>" + formatRupiah(nom) + "</td></tr>";}} if (html === "") html = "<tr><td colspan='3'>Belum ada data</td></tr>"; dt.innerHTML = html; updateProgress(total);}
+function init() {displayDonatur(dataContoh);}
+if (document.readyState === "loading") {document.addEventListener("DOMContentLoaded", init);} else {init();}
