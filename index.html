@@ -133,13 +133,59 @@
     Copyright 2026 Musholla Trusmiland Tengahtani 4A
 </footer>
 
-<script type="text/javascript">
-var TARGET=30800000;
-var donasi=[{nama:"Hamba Allah",tgl:"29 Juni 2026",val:100000}];
-function fmt(x){return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(x);}
-function upd(t){var p=document.getElementById("progressFill");var tk=document.getElementById("terkumpul");var s=document.getElementById("sisa");if(p){var persen=Math.min(t/TARGET*100,100);p.style.width=persen+"%";p.innerHTML=persen.toFixed(1)+"%";}if(tk){tk.innerHTML=fmt(t);}if(s){s.innerHTML=fmt(TARGET-t);}}
-function load(){var tbl=document.getElementById("donaturTable");if(!tbl){return;}var html="";var total=0;for(var i=0;i<donasi.length;i++){var nom=parseInt(String(donasi[i].val).replace(/[^0-9]/g,""))||0;if(nom>0){total+=nom;html+="<tr><td>"+donasi[i].nama+"</td><td>"+donasi[i].tgl+"</td><td>"+fmt(nom)+"</td></tr>";}}if(html===""){html="<tr><td colspan='3'>Belum ada data</td></tr>";}tbl.innerHTML=html;upd(total);}
-setTimeout(load,100);
+<script>
+window.onload = function() {
+    var TARGET = 30800000;
+    var donasi = [];
+    donasi.push({nama: "Hamba Allah", tgl: "29 Juni 2026", val: 100000});
+    
+    function formatRupiah(angka) {
+        return new Intl.NumberFormat("id-ID", {style: "currency", currency: "IDR", maximumFractionDigits: 0}).format(angka);
+    }
+    
+    function updateProgress(total) {
+        var persen = Math.min((total / TARGET) * 100, 100);
+        var progBar = document.getElementById("progressFill");
+        var terkumpul = document.getElementById("terkumpul");
+        var sisa = document.getElementById("sisa");
+        
+        if (progBar) {
+            progBar.style.width = persen + "%";
+            progBar.innerHTML = persen.toFixed(1) + "%";
+        }
+        if (terkumpul) {
+            terkumpul.innerHTML = formatRupiah(total);
+        }
+        if (sisa) {
+            sisa.innerHTML = formatRupiah(TARGET - total);
+        }
+    }
+    
+    function displayDonasi() {
+        var table = document.getElementById("donaturTable");
+        if (!table) return;
+        
+        var html = "";
+        var total = 0;
+        
+        for (var i = 0; i < donasi.length; i++) {
+            var nominal = parseInt(String(donasi[i].val).replace(/[^0-9]/g, "")) || 0;
+            if (nominal > 0) {
+                total = total + nominal;
+                html = html + "<tr><td>" + donasi[i].nama + "</td><td>" + donasi[i].tgl + "</td><td>" + formatRupiah(nominal) + "</td></tr>";
+            }
+        }
+        
+        if (html === "") {
+            html = "<tr><td colspan='3'>Belum ada data donatur</td></tr>";
+        }
+        
+        table.innerHTML = html;
+        updateProgress(total);
+    }
+    
+    displayDonasi();
+};
 </script>
 
 </body>
