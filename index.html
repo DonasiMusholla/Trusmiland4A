@@ -95,19 +95,19 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                     <div>
                         <label for="namaDonatur">Nama Donatur *</label>
-                        <input type="text" id="namaDonatur" placeholder="Nama lengkap" required>
+                        <input type="text" id="namaDonatur" placeholder="Nama lengkap" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
                     </div>
                     <div>
                         <label for="nominalDonasi">Nominal (Rp) *</label>
-                        <input type="number" id="nominalDonasi" placeholder="Contoh: 100000" required>
+                        <input type="number" id="nominalDonasi" placeholder="Contoh: 100000" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
                     </div>
                     <div>
                         <label for="tanggalDonasi">Tanggal Donasi</label>
-                        <input type="date" id="tanggalDonasi">
+                        <input type="date" id="tanggalDonasi" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
                     </div>
                     <div>
                         <label for="metodeDonasi">Metode Donasi</label>
-                        <input type="text" id="metodeDonasi" placeholder="Contoh: Transfer Bank">
+                        <input type="text" id="metodeDonasi" placeholder="Contoh: Transfer Bank" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
                     </div>
                 </div>
                 <div style="margin-bottom: 15px;">
@@ -151,8 +151,40 @@
 <section id="galeri">
     <div class="container">
         <h2>Galeri Musholla</h2>
-        <div class="coming">
-            Dokumentasi pembangunan dan kegiatan musholla akan segera diperbarui.
+        
+        <!-- Form Tambah Galeri -->
+        <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+            <h3>Tambah Foto Galeri</h3>
+            <form id="galeriForm">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label for="judulGaleri">Judul Foto *</label>
+                        <input type="text" id="judulGaleri" placeholder="Contoh: Pembangunan Musholla" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label for="deskripsiGaleri">Deskripsi</label>
+                        <input type="text" id="deskripsiGaleri" placeholder="Deskripsi singkat" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="urlGaleri">URL Gambar *</label>
+                    <input type="url" id="urlGaleri" placeholder="https://example.com/foto.jpg" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    <small style="color: #999; display: block; margin-top: 5px;">Gunakan link gambar yang lengkap (https://...)</small>
+                </div>
+                <button type="submit" class="btn">Tambah Foto</button>
+            </form>
+        </div>
+
+        <!-- Tombol Hapus Semua -->
+        <div style="margin-bottom: 20px;">
+            <button id="clearGaleri" class="btn" style="background: #f44336;">Hapus Semua Galeri</button>
+        </div>
+
+        <!-- Grid Galeri -->
+        <div id="galeriContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">
+                Memuat galeri...
+            </div>
         </div>
     </div>
 </section>
@@ -177,8 +209,9 @@
     Copyright 2026 Musholla Trusmiland Tengahtani 4A
 </footer>
 
-<!-- Load script donatur -->
+<!-- Load scripts -->
 <script src="assets/js/donatur.js"></script>
+<script src="assets/js/galeri.js"></script>
 
 </body>
 </html>
