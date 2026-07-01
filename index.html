@@ -47,7 +47,7 @@
         <div class="stats">
             <div class="card">
                 <h3>Target</h3>
-                <p>Rp 30.800.000</p>
+                <p id="targetDonasi">Rp 30.800.000</p>
             </div>
             <div class="card">
                 <h3>Terkumpul</h3>
@@ -87,20 +87,64 @@
 <section id="donatur">
     <div class="container">
         <h2>Daftar Donatur</h2>
-        <table>
-            <thead>
+        
+        <!-- Form Tambah Donasi -->
+        <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+            <h3>Tambah Data Donasi</h3>
+            <form id="donasiForm">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label for="namaDonatur">Nama Donatur *</label>
+                        <input type="text" id="namaDonatur" placeholder="Nama lengkap" required>
+                    </div>
+                    <div>
+                        <label for="nominalDonasi">Nominal (Rp) *</label>
+                        <input type="number" id="nominalDonasi" placeholder="Contoh: 100000" required>
+                    </div>
+                    <div>
+                        <label for="tanggalDonasi">Tanggal Donasi</label>
+                        <input type="date" id="tanggalDonasi">
+                    </div>
+                    <div>
+                        <label for="metodeDonasi">Metode Donasi</label>
+                        <input type="text" id="metodeDonasi" placeholder="Contoh: Transfer Bank">
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="pesanDonasi">Pesan (Opsional)</label>
+                    <textarea id="pesanDonasi" placeholder="Pesan doa atau ucapan" rows="2" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;"></textarea>
+                </div>
+                <button type="submit" class="btn">Simpan Donasi</button>
+            </form>
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div style="margin-bottom: 20px; display: flex; gap: 10px;">
+            <button id="exportCsv" class="btn" style="background: #4CAF50;">Export CSV</button>
+            <button id="clearDonatur" class="btn" style="background: #f44336;">Hapus Semua Data</button>
+        </div>
+
+        <!-- Tabel Donatur -->
+        <table style="width: 100%; border-collapse: collapse; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <thead style="background: #333; color: white;">
                 <tr>
-                    <th>Nama</th>
-                    <th>Tanggal</th>
-                    <th>Nominal</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Nama</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Tanggal</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Nominal</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Metode</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Pesan</th>
                 </tr>
             </thead>
             <tbody id="donaturTable">
                 <tr>
-                    <td colspan="3">Memuat data...</td>
+                    <td colspan="5" style="padding: 20px; text-align: center; color: #999;">Memuat data...</td>
                 </tr>
             </tbody>
         </table>
+        
+        <div style="margin-top: 15px; text-align: right; color: #666; font-size: 14px;">
+            Total Donatur: <strong id="jumlahDonatur">0</strong>
+        </div>
     </div>
 </section>
 
@@ -133,60 +177,8 @@
     Copyright 2026 Musholla Trusmiland Tengahtani 4A
 </footer>
 
-<script>
-window.onload = function() {
-    var TARGET = 30800000;
-    var donasi = [];
-    donasi.push({nama: "Hamba Allah", tgl: "29 Juni 2026", val: 100000});
-    
-    function formatRupiah(angka) {
-        return new Intl.NumberFormat("id-ID", {style: "currency", currency: "IDR", maximumFractionDigits: 0}).format(angka);
-    }
-    
-    function updateProgress(total) {
-        var persen = Math.min((total / TARGET) * 100, 100);
-        var progBar = document.getElementById("progressFill");
-        var terkumpul = document.getElementById("terkumpul");
-        var sisa = document.getElementById("sisa");
-        
-        if (progBar) {
-            progBar.style.width = persen + "%";
-            progBar.innerHTML = persen.toFixed(1) + "%";
-        }
-        if (terkumpul) {
-            terkumpul.innerHTML = formatRupiah(total);
-        }
-        if (sisa) {
-            sisa.innerHTML = formatRupiah(TARGET - total);
-        }
-    }
-    
-    function displayDonasi() {
-        var table = document.getElementById("donaturTable");
-        if (!table) return;
-        
-        var html = "";
-        var total = 0;
-        
-        for (var i = 0; i < donasi.length; i++) {
-            var nominal = parseInt(String(donasi[i].val).replace(/[^0-9]/g, "")) || 0;
-            if (nominal > 0) {
-                total = total + nominal;
-                html = html + "<tr><td>" + donasi[i].nama + "</td><td>" + donasi[i].tgl + "</td><td>" + formatRupiah(nominal) + "</td></tr>";
-            }
-        }
-        
-        if (html === "") {
-            html = "<tr><td colspan='3'>Belum ada data donatur</td></tr>";
-        }
-        
-        table.innerHTML = html;
-        updateProgress(total);
-    }
-    
-    displayDonasi();
-};
-</script>
+<!-- Load script donatur -->
+<script src="assets/js/donatur.js"></script>
 
 </body>
 </html>
