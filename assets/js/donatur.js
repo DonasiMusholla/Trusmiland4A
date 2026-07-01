@@ -12,6 +12,14 @@
         return 'Rp ' + n.toLocaleString('id-ID');
     }
 
+    // helper: format tanggal ke format Indonesia
+    function formatTanggal(dateStr) {
+        if (!dateStr) return '-';
+        const date = new Date(dateStr + 'T00:00:00');
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Jakarta' };
+        return new Intl.DateTimeFormat('id-ID', options).format(date);
+    }
+
     // helper: escape HTML
     function escapeHtml(s) {
         if (!s && s !== 0) return '';
@@ -83,7 +91,7 @@
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>${escapeHtml(item.nama)}</td>
-                    <td>${escapeHtml(item.tanggal)}</td>
+                    <td>${formatTanggal(item.tanggal)}</td>
                     <td>${formatRupiah(item.nominal)}</td>
                     <td>${escapeHtml(item.metode || '-')}</td>
                     <td>${escapeHtml(item.pesan || '-')}</td>
@@ -126,7 +134,16 @@
             const nama = namaInput ? namaInput.value.trim() : '';
             const nominal = nominalInput ? Number(nominalInput.value) : 0;
             const metode = metodeInput ? metodeInput.value.trim() : '';
-            const tanggal = (tanggalInput && tanggalInput.value) ? tanggalInput.value : (new Date()).toISOString().slice(0, 10);
+            
+            // Jika tanggal tidak diisi, gunakan tanggal hari ini
+            let tanggal = '';
+            if (tanggalInput && tanggalInput.value) {
+                tanggal = tanggalInput.value;
+            } else {
+                const today = new Date();
+                tanggal = today.toISOString().slice(0, 10);
+            }
+            
             const pesan = pesanInput ? pesanInput.value.trim() : '';
 
             if (!nama || !nominal || nominal <= 0) {
@@ -144,7 +161,7 @@
             if (pesanInput) pesanInput.value = '';
 
             // optional: show quick thank you
-            try { alert('Terima kasih, donasi Anda telah dicatat (client-side).'); } catch (e) {}
+            try { alert('Terima kasih, donasi Anda telah dicatat!'); } catch (e) {}
         });
     }
 
@@ -152,7 +169,7 @@
         exportBtn.addEventListener('click', function () {
             const list = loadDonatur();
             if (!list.length) { alert('Belum ada data donatur.'); return; }
-            const csv = [ ['Nama', 'Tanggal', 'Nominal', 'Metode', 'Pesan'], ...list.map(r => [r.nama, r.tanggal, r.nominal, r.metode || '', r.pesan || '']) ]
+            const csv = [ ['Nama', 'Tanggal', 'Nominal', 'Metode', 'Pesan'], ...list.map(r => [r.nama, formatTanggal(r.tanggal), r.nominal, r.metode || '', r.pesan || '']) ]
                 .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
 
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -177,6 +194,11 @@
 
     // init
     document.addEventListener('DOMContentLoaded', function () {
+        // Set default date untuk input ke hari ini
+        if (tanggalInput) {
+            const today = new Date();
+            tanggalInput.value = today.toISOString().slice(0, 10);
+        }
         renderTable();
     });
 
